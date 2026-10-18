@@ -8,6 +8,9 @@ docker volume create <nombre volumen>
 ```
 
 ### Crear el volumen nombrado: vol-postgres
+docker volume create vol-postgres
+vol-postgres
+
 # COMPLETAR CON EL COMANDO
 
 ## MOUNTPOINT
@@ -39,6 +42,9 @@ docker run -d --name <nombre contenedor> --mount type=volume,src=<nombre >,dst=<
 
 
 ### Crear la red net-drupal de tipo bridge
+docker network create -d bridge net-grupal
+6b325aa02d09bf20da117c214c8534f9ecfc010a2202179a4e64eb4e582d44c8
+
 # COMPLETAR CON EL COMANDO
 
 ### Crear un servidor postgres vinculado a la red net-drupal, completar la ruta del contenedor
@@ -56,6 +62,19 @@ docker run -d --name client-postgres --publish published=9500,target=80 -e PGADM
 
 ### Crear los volúmenes necesarios para drupal, esto se puede encontrar en la documentación
 ### COMPLETAR CON LOS COMANDOS
+C:\Users\David>docker volume create drupal-modules
+drupal-modules
+
+C:\Users\David>docker volume create drupal-sites
+drupal-sites
+
+C:\Users\David>docker volume create drupal-themes
+drupal-themes
+
+C:\Users\David>docker volume create drupal-files
+drupal-files
+
+
 
 ### Crear el contenedor server-drupal vinculado a la red, usar la imagen drupal, y vincularlo a los volúmenes nombrados
 ```
@@ -63,11 +82,31 @@ docker run -d --name server-drupal --publish published=9700,target=80 -v <nombre
 ```
 
 ### Ingrese al server-drupal y siga el paso a paso para la instalación.
-# COMPLETAR CON UNA CAPTURA DE PANTALLA DEL PASO 4
+# COMPLETAR CON UNA CAPTURA DE PANTALLA DEL PASO 4}
+![Captura paso 4](drupal.png)
 
 _La instalación puede tomar varios minutos, mientras espera realice un diagrama de los contenedores que ha creado en este apartado._
 
+
+
 # COMPLETAR CON EL DIAGRAMA SOLICITADO
+      +-------------------------------------------------------+
+       |                  Red: net-drupal (bridge)             |
+       |                                                       |
+       |    +-------------------+    +--------------------+    |
+       |    |  server-postgres  |    |   client-postgres  |    |
+       |    |  (PostgreSQL DB)  |    |  (pgAdmin / 9500)  |    |
+       |    +---------+---------+    +--------------------+    |
+       |              |                                        |
+       |              | (Conexión interna)                     |
+       |              |                                        |
+       |    +---------v---------+                              |
+       |    |   server-drupal   |                              |
+       |    |   (Drupal / 9700) |                              |
+       |    +-------------------+                              |
+       +-------------------------------------------------------+
+               |              |               |
+         [Volúmenes Postgres]  [Volúmenes Drupal]
 
 ### Eliminar un volumen específico
 ```
