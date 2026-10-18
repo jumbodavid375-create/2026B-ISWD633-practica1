@@ -1,3 +1,7 @@
 # COMPLETAR  
 Comparando sus conocimientos antes de hacer la práctica con sus conocimientos después de hacer la tarea, explicar los principales aprendizajes logrados para beneficio de su formación profesional.  
 Si solucionó un problema presentado o utilizó otros comandos que no se mencionan al realizar la práctica también se debe documentar.
+
+Antes de realizar la práctica, mis conocimientos sobre Docker se limitaban principalmente a la ejecución básica de contenedores de forma aislada. Con el desarrollo de esta tarea, logré comprender y aplicar conceptos clave de arquitectura de contenedores, como la gestión de redes de tipo bridge (net-drupal), el uso de volúmenes nombrados y anónimos para garantizar la persistencia de datos, y la comunicación interna entre servicios mediante el uso de nombres de contenedores en lugar de direcciones IP.
+
+Asimismo, durante el proceso de instalación de Drupal, se presentaron algunos inconvenientes técnicos relacionados con los permisos de escritura del servidor web y la ausencia del directorio de traducciones en el sistema de archivos. Estos problemas se resolvieron directamente desde la terminal del contenedor mediante comandos de administración de Linux mkdir, chown y chmod, lo que permitió otorgar los permisos adecuados al usuario www-data y completar con éxito la configuración de la base de datos PostgreSQL. Esta experiencia fortaleció mis habilidades para la solución de problemas en entornos de contenedores, un aspecto fundamental para mi formación profesional en el área de ingeniería.
